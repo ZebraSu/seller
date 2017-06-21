@@ -1,6 +1,6 @@
 <template>
-  <div class="star" :class="starType">
-    <span v-for="itemClass in itemClasses" :class="itemClass" class="star-item" :key="item.id"></span>
+  <div class="star"  :class="starType">
+    <span v-for="(itemClass,index) in itemClasses" :class="itemClass" class="star-item" key="index"></span>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -10,15 +10,16 @@
   const CLS_OFF = 'off';
   export default {
       props: {
-          size: {
-              type: Number
-          },
-          score: {
-              type: Number
-          },
+        size: {
+          type: Number
+        },
+        score: {
+          type: Number
+        }
+      },
         computed: {
               starType() {
-                  return 'star-' + this.size;
+                return 'star-' + this.size;
               },
               itemClasses() {
                   let result = [];
@@ -37,7 +38,6 @@
                   return result;
               }
         }
-      }
   };
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
